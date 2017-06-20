@@ -40,7 +40,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        downloadFile('http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg','gato.jpg',function(file){alert('descargado '+file);});
+        downloadFile('http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg','-media-3405-company.jpg',function(file){document.getElementById("downloaded").src = file;});
     }
 };
 
@@ -57,12 +57,11 @@ function downloadFile (url, fileName, callback) {
                                                                    fileURL,
                                                                    function (entry) {
                                                                    var file = entry.toURL() // <--- HERE
-                                                                   alert('Downloaded ' + entry + ' (' + fileName + ') ' + file)
                                                                    callback(file);
                                                                    },
                                                                    function (error) {
                                                                    alert('error ' + error.code + '(' + fileName + ')');
-                                                                   
+
                                                                    }
                                                                    );
                                              }, function (error) {
